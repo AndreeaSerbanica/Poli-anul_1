@@ -1,0 +1,11 @@
+/*
+    SERBANICA Andreea-Maria - 313CD
+*/
+
+
+TASK 1:
+Citim din fisier numarul de noduri(nrNodes) si numarul de muchii(nrEdges). Cream un vector de stringuri, incare retinem toate nodurile. Intai verificam daca mai exista in vector, prin intermediul functiei getIndex. Daca mai exista, returnam pozitia pe care se afla, iar daca nu, creste count-ul si adaugam in vectorul de stringuri. Astfel, indexul unei locatii devine nodul in graf. De exemplu, daca BIBLIOTECA se afla pe pozita 2 in vectorul de stringuri, atunci in graf, va fi pusa pozitia 2. 
+
+Dupa ce cream graful si lista de adiacenta, aplcam DFS oentru a afla cate grafuri sunt. Odata ce trecem print-un nod, marcam cu 1 in vectorul pentru vizitati. De fiecare data cand gasim 0 in vectorul pentru vizitati, aplicam DFS de la acel index si marim nrGraphs.
+
+Ca sa aflam costul minim, aplicam algoritmul lui Prim, folosind-ne de o o coada a prioritatii.

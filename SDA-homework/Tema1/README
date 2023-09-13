@@ -1,0 +1,62 @@
+-In fisierul tema1.c se afla functia main. 
+-Fisierele DoubleLinkedList.c si DoubleLinkedList.h contin functiile care se aplica pe Banda Magica
+-Fisierele Queue.c si Queue.h contin functiile care se aplica pe coada in care am pus operatiile
+-Fisierele Stack.c si Stack.h contin funtiile specifice stivelor de UNDO si REDO.
+
+DoubleLinkedList.h:
+	-se declara o lista dublu inlantuita cu santinela, de tipul *TList sau NodeList
+	-se declara un struct, de tipul *TBanda, care sa retina pointer catre santinela(sentinel), degetul(finger), si ultimul element din Banda Magica(last).
+
+DoubleLinkedList.c:
+	-contine toate operatie care pot fi aplicate pe Banda Magica:
+		->TList initList() : initializeaza lista;
+		->TList createNodeList(T) : creaza un nod pentru banda cu o valoare;
+		->TBanda initTape() : initializeaza Banda Magica, santinela si primul nod dupa santinela cu valoarea "#";
+		->TList freeNodeList(TList) : dezaloca din memorie un nod;
+		->TBanda freeBanda(TBanda) : dezaloca din memorie Banda Magica;
+		
+		->void write(TBanda, T) : modifica caracterul de pe pozitia degetului;
+		->void move_left(TBanda, TList*) : muta degetul cu o pozitie la stanga, iar daca nu poate afiseaza "ERROR";
+		->void move_right(TBanda) : muta degetul cu o pozitie la dreapta;
+		->void show(TBanda, FILE*) : afiseaza toata Banda Magica;
+		->void show_current(TBanda, FILE*) : afiseaza caracterul  de pe pozitia curenta a degetului;
+		->void move_left_char(TBanda, T, FILE*) : muta degetul la stanga pana la un anumit caracterul , iar daca nu o gaseste afiseaza "ERROR";
+		->void move_right_char(TBanda, T) : muta degetul la dreapta pana la un anumit caracterul ;
+		->void insert_left(TBanda, T, FILE*) : insereaza un nou caracter in stanga degetului;
+		->void insert_right(TBanda, T) : insereaza un nou caracter in dreapta degetului;
+	
+Queue.h:
+	-se declara un nod pentru coada, printr-un struct de tipul queueNode;
+	-se declara coada de tipul *TQueue, care contine capul si finalul cozii(*head , *tail);
+
+Queue.c:
+	-contine operatiile speicifice unei cozi.
+		->queueNode *initNodeforQueue(T*, T) : creeaza un nod pentru coada care contine o operatie;
+		->TQueue initQueue(void) : initializeaza coada;
+		->int isQueueEmpty(TQueue) : verifica daca coada este goala;
+		->TQueue addToQueue(TQueue, queueNode) : adauga al fialul cozii o noua operatie;
+		->queueNode *freeNode(queueNode) : dezaloca un nod din coada;
+		->TQueue deleteFromQueue(TQueue) : dezaloca toata coada;
+		
+Stack.h:
+	-contine operatiile specifice unei stive.
+		->TStack initStack (TList) : creeaza un nod cu o valore pentru stiva;
+		->int isStackEmpty(TStack) : verifica daca stiva e goala;
+		->TStack push (TStack, TList) : adauga un element in stiva;
+		->TStack pop(TStack) : elimina primul element din stiva;
+		->TList top(TStack) : returneaza elemetnul din capul stivei;
+		->TStack freeStack(TStack) : dezaloca stiva;
+		->Stack init(void) : initializeaza o stiva goala;
+
+In tema1.c: 
+	-se citesc toate operatiile din fisiser si se adauga in coada (queue). In cazul opaeratiilor de tipul WRITE,  INSERT_LEFT, INSERT_RIGHT, MOVE_LEFT_CHAR,  MOVE_RIGHT_CHAR se mai citeste inca un caracater. De asemenea, se retine capul cozii intr-un alt pointer (queue_head).
+	Se parcurge coada pana la final cu ajutorul variabilei tmp1. 
+	Daca tmp1 intalneste operatia EXECUTE, trebuie sa se execute operatia care se afla in capul cozii, dupa care capul cozii(queue->head) se muta la urmatoearea operatie din coada. Aici se pot apela functiile write(), move_left,  move_right, move_left_char, move_right_char, insert_left, insert_right. Cand se intalnesc operatiile move_left si move_right se salveaza pointerul degetului in stiva de undo, inainte ca degetul sa se mute in stanga sau in dreapta. In cazul operatiei de move_left, mai intai se verifica daca acesta se paote efectua si nu afiseaza "ERROR" si dupa se salveaza pozitia degetului inainte sa fie mutat.
+	Daca tmp1 intalneste operatia SHOW, se apeleaza functia show().
+	Daca tmp1 intalneste operatia SHOW_CURRENT, se apeleaza functia show_current().
+	Daca tmp1 intalneste operatia UNDO, se adauga pozitia degetului in stiva_redo. Degetul ia pozitia pointerului din varful stivei_undo si se elimina primul element din stiva_undo.
+	Daca tmp1 intalneste operatia REDO, se adauga pozitia degetului in stiva_undo. Degetul ia pozitia pointerului din varful stivei_redo si se elimina primul element din stiva_redo.
+	
+	-la de fiecare data cand tmp1 trebuie mutat, se verifica daca capul cozii(queue->head) pointeaza catre o operatie de tipul EXECUTE, SHOW, SHOW_CURRENT, UNDO, REDO, iar daca pointeaza, acesta se muta pana cand gasete operatii diferite de acestea.
+	
+	-la final, se dezaloca coada, stivele de undo si de redo, dar si Banda Magica. Coada se dezaloca cu ajutorul poinerului queue_head, in care am salvat la inceput capul cozii.
