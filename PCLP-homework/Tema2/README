@@ -1,0 +1,14 @@
+TASK_1 :
+Am luat un pointer (*pointer), care incepe de la prima pozitie a vectorului ("point = info") si se deplaseaza prin vector cu ajutorul functiei "sizeof", afisand elementul specific bite-ului unde indica pointer-ul.
+
+TASK_2:
+Am introdus, cu ajutorul unui pointer care parcurge vectorul, valorile specifice liniei, coloanei, directiei si tipului. In functie de tipul avionului ('1' sau '2'), si in functie de directia in care se afla acesta ('N', 'S', 'E', 'W') punem steluta in functie de pozitia specifica liniei si coloanei.
+
+TASK_3:
+Folosim functia "qsort" pentru a sorta vectorul crescator dupa tip, pentru tipuri egale, descrescator dupa cod, iar in cazul in care avem coduri egale, cresctor dupa viteza. Ii dam functiei "qsort" 4 varianile, si anume, vectorul "info", numarul de avioane, lungimea pe biti a vectorului si funcia compare.  
+In functia compare, avem 2 pointeri ca pe care ii comparam. Luam x si y - variabile pentru tip, a si b - variabilele pentru cod, c si d - variabile specifice pentru viteaza.
+Pentru fiecare categorie, returnam "x - y" -> (crescator), "-strncmp(a, b, 3)" -> (descrescator), " c - d" -> (crescator).
+
+TASK_4:
+Dam valorea specifica fiecarei varibila, si anume, linie, coloana, directie si tip. Luam o varibila ok, care poate sa fie numai 1 sau 0. Aceasta determina daca avianul trece fara sa dea de un obstacol in calea lui sau daca nu ajunge la destinatie. Daca ok = 1, atunci avionul nu ajunge la final, iar daca ok = 0, avionul ajunge. Luam avionale in functie de tipul acestora('1' sau '2').
+Luam in functie de directie. Citim obstacolele, apoi verificam daca pozitia acestora se afla deasupra aripii mari ale avionului sau intre aripa mare si aripa mica. Daca se gasete vreun obstacol intre aceste pozitii, at ok = 1, daca nu, ok  ramane 0; De fiecare data cand ok devine 1, controrul, care numara cata avioane NU trec, se mareste ("contor++"). La final afisam diferenta dintre numarul total de avioane si numarul de avioane care nu trec, rezultand numarul de avioanele care trec, (printf("%d", nr_avioane - contor)).

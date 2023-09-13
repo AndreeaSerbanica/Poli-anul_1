@@ -1,0 +1,20 @@
+TASK1
+Am citit 2 vectori: un vector tip int pentru numere si un vector tip char pentru semne.
+Am adunat pe rand numerele in functie de semn.
+
+TASK2
+Am citit 2 vectori: un vector tip int pentru numere si un vector tip char pentru semne.
+Am aflat prima pozitie pe care se afla un caracter de tipul '*' sau '/'
+Facem doar operatiile '*' si '/' specifice pornind de la pozitia identificata. Primul numar din operatie ia valoarea 0, iar cel de al doilea ia valoarea rezultatului.
+De asemenea modificam semnele '*' si '/' in '+' sau '-',
+Trecem din nou prin vector si efectua operatiile la rand, deoarece singurele operatii ramase sunt '+' si '-'.
+
+TASK3
+Am citit 2 vectori: un vector tip int pentru numere si un vector tip char pentru semne.
+Am aflat prima pozitie pe care se afla un caracter de tipul '*' sau '/'
+Facem doar operatiile '*' si '/' specifice pornind de la pozitia identificata. Primul numar din operatie ia valoarea 0, iar cel de al doilea ia valoarea rezultatului.
+Eliminam 0 - urile din vector si semnele care se afla pe aceeasi pozitie cu numerele transformate in 0.
+Trecem din nou prin vector si facem operatiile de tip '#'.
+Primul numar din operatie ia valoarea 0, iar cel de al doilea ia valoarea rezultatului.
+Eliminam 0 - urile din vector si semnele care se afla pe aceeasi pozitie cu numerele transformate in 0.
+Trecem din nou prin vector, care are acum doar operatii de tipul '+' si '-' si efectuam operatiile in ordine.

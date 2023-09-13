@@ -1,0 +1,21 @@
+TASK1 (task1.c)
+Am facut shiftare pe biti, in funcite de numarul de biti corespunzator. De exemplu, N are 3 biti, deci am mutat, variabila number (care reprezinta instructiunea data cu 32 - 3 = 29 biti). Analog pentru semne si pentru Dimenisune. Dupa care le-am afisat.
+
+TASK2 (task2.c)
+Am pus semnele intr-un vector, aflam cate numere trebuie introduse(cate_numere), si bagam numerele care trebuie introduse intr-un vector(numere_introduse); Luam fiecare numar in parte si il shiftam pe biti, in functie de dimensiune. Pt asta, am luat variabilele biti_fata si biti_spate, care reprezinta numarul de biti cu care o sa fie shiftat numarul in la stanga(biti_fata) si numarul de biti cu care o sa fie shiftat nr la dreapta(biti_spate); Dupa ce am obtinut toti operanzii, i-am bagat intr-un vector si am efectuat opratiile necesare.
+
+TASK3(task3.c)
+In cazul in care Dim este 1, 2, 4, 8, 16, am facut acelasi lucru ca la task2. In cazul in care Dim nu este un divizor de-al lui 16, aflam multiplul maxim al lui Dim, mai mic decat 16 (dimensiune_maxima). De exemplu, daca Dim = 5, dimensiune_maxima = 15; daca Dim = 7, dimeniune_maxima este 14. Afland dimeniunea_maxima, procedam ca la taskul 2. Ne folosim de 2 variabile (biti_fata, biti_spate) si shiftam in functie de valorile acestora, ele reprezentand divizori pt dimensiunea_maxima. 
+Dupa ce aflam toti operanzii care fac parte din acelasi numar, de raman sa aflam operanzii ai caror biti se afla in 2 numere diferite. Pt asta  aflam cati biti mai raman pana la 16 (nr_biti_ramasi) si cati biti mai trebuie sa luam din celalalt numar pentru a obtine Dim (biti_de_completat). Operandul este obtinut prin shiftarea lui another_operand.
+Cand treceam la urmatorul numar, adunam la another_operand, operandul obitnut cu shiftarea urmatorului numar la dreapta. De asemenea, nr_biti_principali, reprezinta restul de biti ramasi nefolositi dintr-un numar, in cazul in care avem biti_de_completat.
+La final adunam operazii.
+
+TASK4 (task4.c)
+Obtinem operanzii prin aceeasi metoda ca la task3. 
+
+operanzi[1000] = vectorul in care sunt stocati operanzii;
+semne[1000] = semnele (+, -, *, /);
+operatii[1000] = are 1 pe pozitiile unde sunt * si /, si 0 pentru + si -;
+
+Trecem simultam prin vectorul operanzi[1000] si vectorul semne[1000], doar unde operatori[i] == 1, adica unde avem * sau /.  Efectuam operatiile si facem operanzii folositi 0.
+Dupa ce terminam cu * si /, aflam prima pozitile unde operatori[i] == 0 (poz),  adica prima pozitiie unde avem + sau -. Incepem sa adunam sau sa scdam operatorii ramasi.
