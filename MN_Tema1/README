@@ -1,0 +1,58 @@
+TASK1
+Functia Parse_labyrinth
+Am luat un pointer catre calea fisierrlui care trebuie deschis. Am citi n si m dupa care am citit matricea Labyrinth.
+
+Funcita get_adyacency_matrix
+Am aflat size-ul matricei. Am format o matrice de pozitii rows x cols (EX pt o matrice 3x3,  pozLabyrinth = [1 2 3; 4 5 6; 7 8 9]) si matricea de adiacenta Adj cu 2 coloane in plus win si lose. Parcurgem matreicea si verificam pentru fiecare bit(Nord->bitul 4, Sud->bitul 3, Est->bitul 2, Sud-> bitul 1). Daca unul dintre indicii i si j iese din limitele matricii atunci se duce fie pe win fie pe lose. Daca nu iese stacam pozitiile in p1 si p2, si punem in in matricea Adj pe pozitiile p1 si p2.
+
+Funcita get_link_matrix
+Cream Adj ca la functia anterioara. Link ia valoare lui Adj. Dupa cre numaram cati 1 sunt pe fiacre linie si crestem un contor. Valorile pe care le obtineem in contor pe fiecare linie sunt stocate in array. Fiecare 1 din Link ia valoare 1.array(i). (EX daca sunt 2 de 1 pe o linie, atunci 1 ia valoarea 1/2).
+
+Funcita get_Jacobi_paramenters
+Paramentrul G ia valoarea lui link fara liniile win si lose.
+Parametrul c ia valoarea coloanei win.
+
+Functia perfom_iterative
+Aplciam algoritmul Jacobi de forma matriceala.
+
+Funcita heuristic_greedy
+Pozitia curenta devine poziita de start. Se initializeaza matrice pentru pozitii vizitate. Se verifica daca pozitia curenta este starea de castig si daca iese se iese din algoritm. Daca nu se cauta vecinii nevizitati ai pozitiei curente, care au porbabiliatea cea mai mare de a ajunge la casitg. Daca nu sutn vecini se elimina ultima pozitie din calea parcursa. De ficare daca cand parcugem o pozitie, o marcam ca vizita.
+
+Functia decode_path
+Cream o matrice cu elmente consecutive.(Ex de la 1 pana la 9). Parcurgem path si cautam cu ajutorul functiei find, indicii fiecarui element din path.
+
+
+TASK2
+Functia parse_data_set_file
+Citim m si n. Cream o matrice de tip cell si dupa citim elentele acesteia.
+
+Functia parse_CSV_file
+Eliniam prima linie. Dupa care citim elementele pana la finalul fisielui.
+
+Functia prepare_for_regression
+Parcuregem matricea si verificam ce tip de elemente sunt: "yes", "no", "furnished", "unfurnished", "semi-furnished" sau numar si punem pentru fiecare valorile corespunzatoare in FeatureMatrix.
+
+Funcita gradient_descent
+Initializam  vectorul de greautati Theta cu valori nule. In pirumul fir se parcurg iter iterati, se calculeaza gradientul de fiecare data si se actualizeaza vectorul Theta. Pentru a calcula gradientul se folosete formula data.
+
+functia linear_regressiion_cost_function
+Initalizam suma erorilor ssum = 0. De fiecare data se calculeaza produlul din formula data. Diferenta ssum2 - Y(i) este ridicata la patrat. Dupa care se imparte la 2*m.
+
+functia lasso_regressiion_cost_function
+La fel ca inainte, se aplica formula.
+
+functia ridge_regressiion_cost_function
+La fel ca inainte se aplica formula data.
+
+TASK3
+functia load_dataset
+Se citesc datele din path. Se atribuie matricea X si vectorul y din variabila "data".
+
+functia split_dataset
+Se reordoneaza matricele aleator, oentru a selecta exemplele din seturi. Se calculeaza numarul de exemple. Se creeaza matricele selectand num_train.
+
+funcita initialize_weights
+Se foloseste funtia rand pentru a initaliza matricea cu valori foarte mici.
+
+Doresc corectarea manuala a testelor pentru tema 1.
+ 
